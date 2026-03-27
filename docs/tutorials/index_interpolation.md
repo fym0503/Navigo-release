@@ -1,8 +1,8 @@
 # Interpolation Tutorials
 
-This section reproduces the **Navigo interpolation and denoising analysis** described in the Navigo study.
+This section reproduces the **Navigo interpolation and denoising analyses** described in the Navigo study.
 
-Navigo is used here to generate adjacent-time interpolation predictions along the muscle trajectory and recover a denoised myofibroblast population for proportion-, marker-, and pathway-level interpretation.
+Navigo is used here both for held-out interpolation benchmarking across intermediate developmental stages and for myofibroblast denoising along the muscle trajectory with downstream proportion-, marker-, and pathway-level interpretation.
 
 ```{admonition} Runtime Note
 :class: note
@@ -12,5 +12,6 @@ The notebook is designed for the Navigo package environment and expects the data
 ```{toctree}
 :maxdepth: 1
 
-notebooks/interpolation_section/01_Navigo_Interpolation_Myofibroblasts_Denoising
+notebooks/interpolation_section/01_Navigo_Interpolation_Benchmarking
+notebooks/interpolation_section/02_Navigo_Interpolation_Denoising
 ```

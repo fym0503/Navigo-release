@@ -4,7 +4,7 @@
 
 Generative modeling of mouse embryogenesis, with applications in trajectory mapping, gene regulatory network probing, perturbation prediction, and cellular reprogramming.
 
-This documentation now lives alongside the installable package and the full tutorial workspace in a single repository layout.
+
 
 ![navigo-logo](_static/method_overview.png)
 
@@ -31,7 +31,7 @@ Read the core problem setting and modeling summary for the paper.
 :link: tutorials/index
 :link-type: doc
 
-Browse all tutorial sections, including interpolation, GRN, knockout, and reprogramming workflows.
+Browse all tutorial sections, including interpolation benchmarks, training demos, GRN, knockout, and reprogramming workflows.
 :::
 
 ::::

@@ -5,6 +5,7 @@
 .venv/
 *.egg-info/
 *.log
+*.executed.ipynb
 *.py[cod]
 __pycache__/
 
@@ -16,6 +17,7 @@ docs/_build/
 checkpoints/
 data/
 docs/tutorials/outputs/
+docs/tutorials/resources/interpolation/outputs/
 
 # Common model and dataset formats that should not be committed
 *.h5ad

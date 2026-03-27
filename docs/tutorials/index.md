@@ -12,6 +12,14 @@ In this unified repository, tutorial notebooks live under `docs/tutorials/notebo
 :link-type: doc
 
 Myofibroblast temporal interpolation and denoising analysis across proportion, marker, and pathway readouts.
+Held-out interpolation benchmarking and myofibroblast denoising analysis across quantitative and figure-level outputs.
+:::
+
+:::{grid-item-card} Training Demo
+:link: index_training_demo
+:link-type: doc
+
+Subset-scale GPU training and held-out intermediate validation for the full Navigo training workflow.
 :::
 
 :::{grid-item-card} GRN
@@ -40,6 +48,7 @@ Cardiac and neuronal reprogramming analyses driven by in silico perturbation and
 :maxdepth: 2
 
 index_interpolation
+index_training_demo
 index_grn
 index_knockout
 index_reprogramming

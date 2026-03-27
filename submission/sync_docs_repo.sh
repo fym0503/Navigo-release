@@ -47,7 +47,9 @@ rsync -a --delete \
   --exclude '.gitignore' \
   --exclude '.readthedocs.yaml' \
   --exclude 'README.md' \
+  --exclude '*.executed.ipynb' \
   --exclude 'tutorials/outputs/' \
+  --exclude 'tutorials/resources/interpolation/outputs/' \
   "$source_docs"/ "$target_repo"/
 
 cat > "$target_repo/.readthedocs.yaml" <<'EOF'
@@ -71,7 +73,9 @@ _build/
 .venv*/
 .ipynb_checkpoints/
 __pycache__/
+*.executed.ipynb
 tutorials/outputs/
+tutorials/resources/interpolation/outputs/
 EOF
 
 cat > "$target_repo/README.md" <<'EOF'
