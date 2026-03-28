@@ -10,35 +10,35 @@ Tutorial notebooks live under `docs/tutorials/notebooks/`, while shared inputs a
 :link: index_interpolation
 :link-type: doc
 
-Held-out interpolation benchmarking and myofibroblast denoising analysis across quantitative and figure-level outputs.
+Interpolation and denoising examples.
 :::
 
 :::{grid-item-card} Training Demo
 :link: index_training_demo
 :link-type: doc
 
-Subset-scale GPU training and held-out intermediate validation for the full Navigo workflow.
+A compact training example.
 :::
 
 :::{grid-item-card} GRN
 :link: index_grn
 :link-type: doc
 
-CHD-focused regulatory program analysis based on knockout response organization and pathway interpretation.
+GRN analysis examples.
 :::
 
 :::{grid-item-card} Knockout
 :link: index_knockout
 :link-type: doc
 
-Lineage-resolved knockout analyses covering pathway enrichment, severity comparison, and directional enrichment summaries.
+Knockout analysis examples.
 :::
 
 :::{grid-item-card} Reprogramming
 :link: index_reprogramming
 :link-type: doc
 
-Cardiac and neuronal reprogramming analyses driven by in silico perturbation and factor ranking.
+Reprogramming examples.
 :::
 ::::
 
