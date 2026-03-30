@@ -18,7 +18,7 @@ from navigo.model import MLPTimeGRN, Navigo
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Validate held-out intermediate timepoint predictions with EMD-based similarity metrics."
+        description="Validate held-out intermediate timepoint predictions with EMD-based distance metrics."
     )
     parser.add_argument("--subset-data", required=True, help="Training subset .h5ad used for fitting.")
     parser.add_argument("--full-data", required=True, help="Full atlas .h5ad for held-out ground truth.")
@@ -104,7 +104,7 @@ def create_validation_plot(metrics_df, figure_path):
     axes[0].set_xticklabels(labels, rotation=45, ha="right")
     axes[0].set_ylabel("Earth mover distance")
     axes[0].set_xlabel("Held-out intermediate day")
-    axes[0].set_title("Held-out intermediate similarity by timepoint")
+    axes[0].set_title("Held-out intermediate EMD by timepoint")
     axes[0].legend(frameon=False, loc="best")
     axes[0].spines["top"].set_visible(False)
     axes[0].spines["right"].set_visible(False)
@@ -119,7 +119,7 @@ def create_validation_plot(metrics_df, figure_path):
     colors = ["#f58518", "#54a24b", "#4c78a8"]
     axes[1].bar(summary.index, summary.values, color=colors, alpha=0.9)
     axes[1].set_ylabel("Mean earth mover distance")
-    axes[1].set_title("Average similarity across held-out timepoints")
+    axes[1].set_title("Average EMD across held-out timepoints")
     axes[1].tick_params(axis="x", rotation=30)
     axes[1].spines["top"].set_visible(False)
     axes[1].spines["right"].set_visible(False)
@@ -251,7 +251,7 @@ def main():
     print(f"[OK] Saved metrics: {metrics_csv}")
     print(f"[OK] Saved summary: {summary_path}")
     print(
-        "Mean EMDs | "
+        "Mean EMD distances | "
         f"prediction={summary['mean_prediction_emd']:.4f} | "
         f"start={summary['mean_start_emd']:.4f} | "
         f"end={summary['mean_end_anchor_emd']:.4f}"
