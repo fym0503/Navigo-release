@@ -53,24 +53,6 @@ rsync -a --delete \
   --exclude 'tutorials/resources/interpolation/outputs/' \
   "$source_docs"/ "$target_repo"/
 
-export SOURCE_DOCS="$source_docs"
-export TARGET_REPO="$target_repo"
-python3 <<'PY'
-import os
-import shutil
-from pathlib import Path
-
-source = Path(os.environ["SOURCE_DOCS"])
-target = Path(os.environ["TARGET_REPO"])
-
-for executed_path in source.rglob("*.executed.ipynb"):
-    relative = executed_path.relative_to(source)
-    target_relative = Path(str(relative).replace(".executed.ipynb", ".ipynb"))
-    destination = target / target_relative
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(executed_path, destination)
-PY
-
 cat > "$target_repo/.readthedocs.yaml" <<'EOF'
 version: 2
 
