@@ -139,7 +139,7 @@ write(
 Install the Navigo package from the main code repository, not from this documentation repository.
 
 ```bash
-git clone <your-github-url> Navigo-release
+git clone https://github.com/aristoteleo/Navigo-release.git Navigo-release
 cd Navigo-release
 pip install -r requirements.txt
 pip install -e .
