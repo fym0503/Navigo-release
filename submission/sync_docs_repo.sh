@@ -31,7 +31,7 @@ if [[ ! -d "$source_docs" ]]; then
   exit 1
 fi
 
-if [[ ! -d "$target_repo/.git" ]]; then
+if [[ ! -e "$target_repo/.git" ]]; then
   echo "Target is not a git repository: $target_repo" >&2
   exit 1
 fi
@@ -39,6 +39,7 @@ fi
 echo "Syncing docs from $source_docs to $target_repo"
 
 rsync -a --delete \
+  --exclude '.git' \
   --exclude '.git/' \
   --exclude '.venv*/' \
   --exclude '_build/' \
@@ -51,6 +52,24 @@ rsync -a --delete \
   --exclude 'tutorials/outputs/' \
   --exclude 'tutorials/resources/interpolation/outputs/' \
   "$source_docs"/ "$target_repo"/
+
+export SOURCE_DOCS="$source_docs"
+export TARGET_REPO="$target_repo"
+python3 <<'PY'
+import os
+import shutil
+from pathlib import Path
+
+source = Path(os.environ["SOURCE_DOCS"])
+target = Path(os.environ["TARGET_REPO"])
+
+for executed_path in source.rglob("*.executed.ipynb"):
+    relative = executed_path.relative_to(source)
+    target_relative = Path(str(relative).replace(".executed.ipynb", ".ipynb"))
+    destination = target / target_relative
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(executed_path, destination)
+PY
 
 cat > "$target_repo/.readthedocs.yaml" <<'EOF'
 version: 2
@@ -95,7 +114,6 @@ sphinx-build -b html . _build/html
 Read the Docs is configured through `.readthedocs.yaml` at the repository root.
 EOF
 
-export TARGET_REPO="$target_repo"
 python3 <<'PY'
 import os
 import re
