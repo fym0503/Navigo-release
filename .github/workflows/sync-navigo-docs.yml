@@ -19,10 +19,10 @@ concurrency:
 
 jobs:
   sync-docs:
-    if: github.repository == 'fym0503/Navigo-release'
+    if: github.repository == 'aristoteleo/Navigo-release'
     runs-on: ubuntu-latest
     env:
-      DOCS_REPO: fym0503/Navigo-docs
+      DOCS_REPO: aristoteleo/Navigo-docs
     steps:
       - name: Check out Navigo-release
         uses: actions/checkout@v4

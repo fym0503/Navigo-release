@@ -6,7 +6,7 @@ Navigo can be installed directly from this repository. We recommend using a virt
 
 
 ```bash
-git clone https://github.com/fym0503/Navigo-release.git Navigo-release
+git clone https://github.com/aristoteleo/Navigo-release.git Navigo-release
 cd Navigo-release
 pip install -r requirements.txt
 pip install -e .

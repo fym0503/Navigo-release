@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite the following work."
 title: "Generative Modeling of Mouse Embryogenesis for Fate and Disease Prediction"
 license: "BSD-2-Clause"
-repository-code: "https://github.com/fym0503/Navigo-release"
+repository-code: "https://github.com/aristoteleo/Navigo-release"
 
 authors:
   - family-names: "Fan"

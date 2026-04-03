@@ -47,7 +47,7 @@ Navigo is designed for modeling **embryogenesis across large temporal single-cel
 Clone the repository and install the package in editable mode:
 
 ```bash
-git clone https://github.com/fym0503/Navigo-release.git
+git clone https://github.com/aristoteleo/Navigo-release.git
 cd Navigo-release
 pip install -r requirements.txt
 pip install -e .
