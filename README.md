@@ -62,16 +62,17 @@ sphinx-build -b html docs docs/_build/html
 
 ## Tutorials
 
-The main tutorial notebooks are organized by biological application under [`docs/tutorials/notebooks`](docs/tutorials/notebooks):
+The tutorial site is organized into five sections:
 
-- [`grn_section`](docs/tutorials/notebooks/grn_section): regulatory analysis for congenital heart disease.
-- [`knockout_section`](docs/tutorials/notebooks/knockout_section): zero-shot perturbation prediction and compensation analysis.
-- [`interpolation_section`](docs/tutorials/notebooks/interpolation_section): interpolation and denoising along developmental trajectories.
-- [`reprogramming_section`](docs/tutorials/notebooks/reprogramming_section): cardiac and neuronal reprogramming studies.
+- [`Training Demo`](docs/tutorials/index_training_demo.md): compact end-to-end subset training and validation workflow.
+- [`Interpolation`](docs/tutorials/index_interpolation.md): held-out interpolation benchmarking and denoising examples.
+- [`GRN`](docs/tutorials/index_grn.md): congenital heart disease regulatory analysis workflow.
+- [`Knockout`](docs/tutorials/index_knockout.md): zero-shot perturbation prediction and enrichment summaries.
+- [`Reprogramming`](docs/tutorials/index_reprogramming.md): cardiac and neuronal reprogramming studies.
 
-Supporting resources and legacy analysis scripts are under [`docs/tutorials/resources`](docs/tutorials/resources).
+The underlying notebooks live under [`docs/tutorials/notebooks`](docs/tutorials/notebooks), and supporting resources remain under [`docs/tutorials/resources`](docs/tutorials/resources).
 
-Some notebooks depend on local datasets and pretrained checkpoints stored under `data/` and `checkpoints/`.
+To run the tutorials locally, download the tutorial asset bundles referenced in [`docs/tutorials/index.md`](docs/tutorials/index.md), then extract them at the repository root so `data/` and `checkpoints/` are available alongside `docs/` and `navigo/`.
 
 ## Repository Structure
 
