@@ -86,8 +86,9 @@ Some notebooks depend on local datasets and pretrained checkpoints stored under 
 If you use this code, please cite:
 
 ```bibtex
-@misc{fan_navigo,
+@article{fan_navigo_2026,
   title={Generative Modeling of Mouse Embryogenesis for Fate and Disease Prediction},
-  author={Yimin Fan and Xinyuan Liu and Yixuan Wang and Zehua Zeng and Lei Li and Xiaojie Qiu and Yu Li}
+  author={Yimin Fan and Xinyuan Liu and Yixuan Wang and Zehua Zeng and Lei Li and Xiaojie Qiu and Yu Li},
+  year={2026}
 }
 ```
