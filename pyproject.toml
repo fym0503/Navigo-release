@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "navigo"
+description = "Navigo package with tutorials and documentation in one repository."
+authors = [{ name = "Yimin Fan", email = "fanyimin@link.cuhk.edu.hk" }]
+license = "BSD-2-Clause"
+license-files = ["LICENSE"]
+dynamic = ["version", "readme", "dependencies", "optional-dependencies"]

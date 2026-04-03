@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the following work."
+title: "Generative Modeling of Mouse Embryogenesis for Fate and Disease Prediction"
+license: "BSD-2-Clause"
+repository-code: "https://github.com/fym0503/Navigo-release"
+
+authors:
+  - family-names: "Fan"
+    given-names: "Yimin"
+  - family-names: "Liu"
+    given-names: "Xinyuan"
+  - family-names: "Wang"
+    given-names: "Yixuan"
+  - family-names: "Zeng"
+    given-names: "Zehua"
+  - family-names: "Li"
+    given-names: "Lei"
+  - family-names: "Qiu"
+    given-names: "Xiaojie"
+    email: "xiaojie@stanford.edu"
+  - family-names: "Li"
+    given-names: "Yu"
+    email: "liyu@cse.cuhk.edu.hk"
+
+preferred-citation:
+  type: article
+  title: "Generative Modeling of Mouse Embryogenesis for Fate and Disease Prediction"
+  authors:
+    - family-names: "Fan"
+      given-names: "Yimin"
+    - family-names: "Liu"
+      given-names: "Xinyuan"
+    - family-names: "Wang"
+      given-names: "Yixuan"
+    - family-names: "Zeng"
+      given-names: "Zehua"
+    - family-names: "Li"
+      given-names: "Lei"
+    - family-names: "Qiu"
+      given-names: "Xiaojie"
+      email: "xiaojie@stanford.edu"
+    - family-names: "Li"
+      given-names: "Yu"
+      email: "liyu@cse.cuhk.edu.hk"
+  year: 2026

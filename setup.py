@@ -21,6 +21,8 @@ setup(
     version="0.1." + BUILD_ID,
     author="Yimin Fan",
     author_email="fanyimin@link.cuhk.edu.hk",
+    license="BSD-2-Clause",
+    license_files=["LICENSE"],
     description="Navigo package with tutorials and documentation in one repository.",
     long_description=long_description,
     long_description_content_type="text/markdown",

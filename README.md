@@ -83,7 +83,7 @@ Some notebooks depend on local datasets and pretrained checkpoints stored under 
 
 ## Citation
 
-If you use Navigo in your work, please cite the manuscript:
+If you use this code, please cite:
 
 ```bibtex
 @misc{fan_navigo,
