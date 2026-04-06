@@ -15,3 +15,76 @@ div.math::-webkit-scrollbar,
 mjx-container[display="true"]::-webkit-scrollbar {
     display: none;
 }
+
+/* Notebook HTML tables should scroll instead of overflowing the content pane. */
+.output.text_html,
+.cell_output .output.text_html,
+.cell_output .rendered_html {
+    overflow-x: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.cell_output table.dataframe,
+.cell_output .rendered_html table,
+.output.text_html table {
+    border-collapse: collapse !important;
+    font-size: 0.85em;
+    white-space: nowrap;
+    max-width: 100%;
+    background-color: var(--color-background-primary) !important;
+    color: var(--color-foreground-primary) !important;
+}
+
+.cell_output table.dataframe th,
+.cell_output table.dataframe td,
+.cell_output .rendered_html table th,
+.cell_output .rendered_html table td,
+.output.text_html table th,
+.output.text_html table td {
+    border: 1px solid var(--color-background-border, #d0d0d0) !important;
+    padding: 4px 10px !important;
+    background-color: var(--color-background-primary) !important;
+    color: var(--color-foreground-primary) !important;
+}
+
+.cell_output table.dataframe tbody tr:nth-child(even) th,
+.cell_output table.dataframe tbody tr:nth-child(even) td,
+.cell_output .rendered_html table tbody tr:nth-child(even) th,
+.cell_output .rendered_html table tbody tr:nth-child(even) td,
+.output.text_html table tbody tr:nth-child(even) th,
+.output.text_html table tbody tr:nth-child(even) td {
+    background-color: var(--color-background-secondary) !important;
+}
+
+.cell_output table.dataframe thead th,
+.cell_output .rendered_html table thead th,
+.output.text_html table thead th {
+    background-color: var(--color-background-secondary) !important;
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-brand-primary, #4c7a69) !important;
+}
+
+/* Keep notebook figures inside the article column. */
+.cell_output a.reference.image-reference,
+.cell_output .output img,
+.cell_output img,
+.cell_output figure,
+.cell_output .output_png,
+.cell_output .output_subarea img {
+    max-width: 100%;
+}
+
+.cell_output a.reference.image-reference {
+    display: block;
+}
+
+.cell_output a.reference.image-reference img,
+.cell_output .output img,
+.cell_output img,
+.cell_output figure img,
+.cell_output .output_subarea img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
