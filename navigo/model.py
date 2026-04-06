@@ -48,6 +48,22 @@ class MLPTimeGRN(nn.Module):
         velocity_u = alpha - beta * m_u
         return velocity_s, velocity_u, alpha, beta, gamma
 
+    @classmethod
+    def load_from_checkpoint(cls, ckpt_path, device='cpu'):
+        """Load MLPTimeGRN from a checkpoint, inferring architecture from weights.
+
+        ``fc1`` takes only ``half_dim = input_dim // 2`` features (the Ms half),
+        so ``fc1.weight.shape[1] == half_dim`` and ``input_dim = 2 * half_dim``.
+        """
+        state = torch.load(ckpt_path, map_location='cpu')
+        half_dim  = state['fc1.weight'].shape[1]
+        input_dim = 2 * half_dim
+        hidden_1  = state['fc1.weight'].shape[0]
+        hidden_2  = state['fc2.weight'].shape[0]
+        model = cls(input_dim=input_dim, hidden_1=hidden_1, hidden_2=hidden_2)
+        model.load_state_dict(state)
+        return model.to(device)
+
 
 class Navigo:
     def __init__(self, model=None, num_steps=1000, device="cuda"):

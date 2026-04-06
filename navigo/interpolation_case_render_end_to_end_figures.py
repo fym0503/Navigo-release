@@ -6,7 +6,7 @@ from pathlib import Path
 import anndata
 import matplotlib
 
-matplotlib.use("Agg")
+# matplotlib.use("Agg")  # Disabled: let the caller control the backend
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd

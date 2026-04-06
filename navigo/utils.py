@@ -81,3 +81,15 @@ def matching_forward(rectified_flow, data, time_label, device):
         alignment_cell[current_index] = future_index[nearest_idx.detach().cpu().numpy()]
 
     return alignment_cell, score
+
+
+def set_seed(seed: int) -> None:
+    """Set Python / NumPy / PyTorch random seeds for reproducibility."""
+    import random
+    import os
+    random.seed(seed)
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)

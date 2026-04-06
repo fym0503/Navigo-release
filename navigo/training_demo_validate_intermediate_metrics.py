@@ -149,9 +149,9 @@ def main():
     subset_days = np.asarray(subset.obs["day"]).astype(str)
     subset_time_values = np.asarray(subset.obs["time"], dtype=np.float32)
 
-    full_backed = anndata.read_h5ad(args.full_data, backed="r")
-    full_times = np.asarray(full_backed.obs["time"], dtype=np.float32)
-    full_days = np.asarray(full_backed.obs["day"]).astype(str)
+    full_adata = anndata.read_h5ad(args.full_data)
+    full_times = np.asarray(full_adata.obs["time"], dtype=np.float32)
+    full_days = np.asarray(full_adata.obs["day"]).astype(str)
     full_unique_times = np.sort(np.unique(full_times))
 
     specs = build_validation_specs(train_times, full_unique_times)
@@ -185,7 +185,7 @@ def main():
 
         source_z = subset_norm[source_pick]
         end_norm = subset_norm[end_pick]
-        gt_adata = full_backed[gt_pick].to_memory()
+        gt_adata = full_adata[gt_pick].copy()
         gt_norm = normalize_with_reference(gt_adata.layers["Ms"], gt_adata.layers["Mu"], data_min, data_max)
 
         pred = navigo.sample_ode_time_interval(
