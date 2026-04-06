@@ -32,6 +32,13 @@ Learn the core modeling ideas.
 Browse examples and tutorials.
 :::
 
+:::{grid-item-card} API Reference {octicon}`code;1em;`
+:link: api/index
+:link-type: doc
+
+Browse the public Navigo package API.
+:::
+
 ::::
 
 ```{toctree}
@@ -42,5 +49,6 @@ Browse examples and tutorials.
 introduction/index
 installation
 tutorials/index
+api/index
 references
 ```

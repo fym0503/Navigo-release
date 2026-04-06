@@ -1,7 +1,66 @@
 from datetime import datetime
 from pathlib import Path
+import sys
+import types
 
 HERE = Path(__file__).parent
+PROJECT_ROOT = HERE.parent
+sys.path.insert(0, str(PROJECT_ROOT))
+
+
+def _install_doc_mocks() -> None:
+    """Install lightweight dependency stubs for API-doc builds."""
+
+    class _DummyLayer:
+        def __init__(self, *args, **kwargs):
+            pass
+
+        def __call__(self, *args, **kwargs):
+            return None
+
+    class _NoGrad:
+        def __call__(self, func=None):
+            if func is None:
+                return self
+            return func
+
+        def __enter__(self):
+            return None
+
+        def __exit__(self, exc_type, exc, tb):
+            return False
+
+    torch_mod = types.ModuleType("torch")
+    torch_nn_mod = types.ModuleType("torch.nn")
+    torch_nn_func_mod = types.ModuleType("torch.nn.functional")
+
+    torch_mod.Tensor = object
+    torch_mod.float32 = "float32"
+    torch_mod.no_grad = _NoGrad()
+    torch_mod.manual_seed = lambda *args, **kwargs: None
+    torch_mod.load = lambda *args, **kwargs: {}
+    torch_mod.randn = lambda *args, **kwargs: None
+    torch_mod.cuda = types.SimpleNamespace(
+        is_available=lambda: False,
+        manual_seed_all=lambda *args, **kwargs: None,
+    )
+
+    torch_nn_mod.Module = object
+    torch_nn_mod.Linear = _DummyLayer
+    torch_nn_mod.Parameter = lambda value: value
+    torch_nn_func_mod.relu = lambda value, *args, **kwargs: value
+    torch_nn_func_mod.sigmoid = lambda value, *args, **kwargs: value
+
+    sys.modules.setdefault("torch", torch_mod)
+    sys.modules.setdefault("torch.nn", torch_nn_mod)
+    sys.modules.setdefault("torch.nn.functional", torch_nn_func_mod)
+    sys.modules.setdefault("ot", types.SimpleNamespace(emd2=lambda *args, **kwargs: 0.0))
+    sys.modules.setdefault("scanpy", types.ModuleType("scanpy"))
+    sys.modules.setdefault("umap", types.SimpleNamespace(UMAP=object))
+    sys.modules.setdefault("adjustText", types.SimpleNamespace(adjust_text=lambda *args, **kwargs: None))
+
+
+_install_doc_mocks()
 
 # -- Project information -----------------------------------------------------
 project = "Navigo"
@@ -13,6 +72,8 @@ release = "main"
 # -- General configuration ---------------------------------------------------
 extensions = [
     "myst_nb",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
     "sphinx_copybutton",
@@ -35,6 +96,11 @@ myst_enable_extensions = [
     "substitution",
 ]
 myst_url_schemes = ("http", "https", "mailto")
+
+autosummary_generate = True
+autosummary_generate_overwrite = True
+autodoc_member_order = "bysource"
+autodoc_typehints = "description"
 
 nb_execution_mode = "off"
 nb_merge_streams = True
@@ -62,6 +128,8 @@ html_theme_options = {
         "color-brand-content": "#7fb4ff",
     },
 }
+
+ogp_social_cards = {"enable": False}
 
 pygments_style = "tango"
 pygments_dark_style = "monokai"

@@ -24,10 +24,16 @@ fi
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source_docs="$repo_root/docs"
+source_pkg="$repo_root/navigo"
 target_repo="$(cd "$1" && pwd)"
 
 if [[ ! -d "$source_docs" ]]; then
   echo "Source docs directory not found: $source_docs" >&2
+  exit 1
+fi
+
+if [[ ! -d "$source_pkg" ]]; then
+  echo "Source package directory not found: $source_pkg" >&2
   exit 1
 fi
 
@@ -52,6 +58,11 @@ rsync -a --delete \
   --exclude 'tutorials/outputs/' \
   --exclude 'tutorials/resources/interpolation/outputs/' \
   "$source_docs"/ "$target_repo"/
+
+rsync -a --delete \
+  --exclude '__pycache__/' \
+  --exclude '*.pyc' \
+  "$source_pkg"/ "$target_repo/navigo"/
 
 cat > "$target_repo/.readthedocs.yaml" <<'EOF'
 version: 2
