@@ -12,5 +12,5 @@ The notebook is designed for the Navigo package environment, expects a CUDA-capa
 ```{toctree}
 :maxdepth: 1
 
-notebooks/training_demo/01_Navigo_Training_Demo
+notebooks/training_demo/01_Navigo_Training_Demo_executed
 ```

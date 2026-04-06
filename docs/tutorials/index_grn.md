@@ -12,5 +12,5 @@ The notebook expects the repository datasets and checkpoints under `data/` and `
 ```{toctree}
 :maxdepth: 1
 
-notebooks/grn_section/01_Navigo_GRN_CHD
+notebooks/grn_section/01_Navigo_GRN_CHD_executed
 ```
