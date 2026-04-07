@@ -133,7 +133,7 @@ bibtex_reference_style = "author_year"
 # -- Options for HTML output -------------------------------------------------
 html_theme = "furo"
 html_title = project
-html_logo = "_static/logo_navigo.png"
+html_logo = "https://raw.githubusercontent.com/Starlitnightly/ImageStore/main/omicverse_img/navigo_logo.png"
 html_show_sphinx = False
 html_static_path = ["_static"]
 html_css_files = ["css/override.css"]
