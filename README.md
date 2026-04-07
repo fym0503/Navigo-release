@@ -1,7 +1,7 @@
 # Navigo-release
 
 <p align="center">
-  <img src="docs/logo_navigo.png" alt="Navigo logo" style="display:block; width:100%; max-width:100%;">
+  <img src="https://raw.githubusercontent.com/Starlitnightly/ImageStore/main/omicverse_img/navigo_logo.png" alt="Navigo logo" style="display:block; width:100%; max-width:100%;">
 </p>
 
 <p align="center">

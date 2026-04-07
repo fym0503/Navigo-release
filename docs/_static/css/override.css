@@ -88,3 +88,18 @@ mjx-container[display="true"]::-webkit-scrollbar {
     height: auto !important;
     display: block;
 }
+
+/* Keep custom sidebar links aligned with the navigation tree. */
+.sidebar-external-links {
+    margin-top: 0.5rem;
+}
+
+.sidebar-external-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-external-links .toctree-l1 > a {
+    display: block;
+}
